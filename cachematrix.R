@@ -18,9 +18,9 @@ makeCacheMatrix <- function(x = matrix()) {
 		
 		## Clear the inverse cached matrix invx
 		invx <<- NULL
-    }
+	}
 
-    get <- function() x
+	get <- function() x
 	
 	setinv <- function(invy) {
 		## Assign a new matrix to inverse cached matrix
@@ -34,7 +34,7 @@ makeCacheMatrix <- function(x = matrix()) {
 	##   get : Get the cached matrix
 	##   setinv : Set the inverse cached matrix
 	##   getinv : Get the inverse cached matrix
-    list(
+	list(
 		set = set,
 		get = get,
 		setinv = setinv,
@@ -49,14 +49,14 @@ cacheSolve <- function(x, ...) {
 
 	## Is the inverse matrix already been cached ?
 	inv_data <- x$getinv()
-    if(!is.null(inv_data)) {
+	if(!is.null(inv_data)) {
 		message("Getting cached data")
 		## Yes, so return inverse cached matrix
 		return(inv_data)
 	}
 	
 	## The inverse matrix has to be calculated from cached matrix...
-    data <- x$get()
+	data <- x$get()
 	inv_data <- solve(data, ...)
 	
 	## ...and cached
